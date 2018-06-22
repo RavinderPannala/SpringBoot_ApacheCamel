@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<purchaseOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="purchaseOrder.xsd">
+  <order>
+    <orderNumber>orderNumber</orderNumber>
+    <product>
+      <productId>productId</productId>
+      <productName>productName</productName>
+      <productType>productType</productType>
+      <productBrand>productBrand</productBrand>
+      <productPrice>0.0</productPrice>
+      <manufacturedBy>manufacturedBy</manufacturedBy>
+      <madeIn>madeIn</madeIn>
+    </product>
+    <transactionId>transactionId</transactionId>
+    <packagedBy>packagedBy</packagedBy>
+    <deliveringBy>deliveringBy</deliveringBy>
+    <deliveryDate>deliveryDate</deliveryDate>
+    <deliveryAddress>
+      <postcode>token</postcode>
+      <cityName>token</cityName>
+      <country>token</country>
+      <H.No>H.No</H.No>
+      <customerNumber>customerNumber</customerNumber>
+      <contactPerson>contactPerson</contactPerson>
+      <telephoneNumber>telephoneNumber</telephoneNumber>
+      <emailAddress>emailAddress</emailAddress>
+    </deliveryAddress>
+    <orderStatus>orderStatus</orderStatus>
+    <payment>
+      <paymentMode>paymentMode</paymentMode>
+      <paymentAmount>0.0</paymentAmount>
+      <paymentStatus>paymentStatus</paymentStatus>
+    </payment>
+    <invoice>
+      <invoiceId>invoiceId</invoiceId>
+      <invoiceAmount>0.0</invoiceAmount>
+      <invoiceStatus>invoiceStatus</invoiceStatus>
+      <invoiceDate>invoiceDate</invoiceDate>
+    </invoice>
+  </order>
+</purchaseOrder>

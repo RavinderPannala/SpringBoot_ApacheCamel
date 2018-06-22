@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="purchaseOrder" type="PurchaseOrderType" />
+	<xs:complexType name="PurchaseOrderType">
+		<xs:sequence>
+			<xs:element name="order" type="Order" minOccurs="0" maxOccurs="999"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Order">
+	<xs:sequence>
+		<xs:element name="orderNumber" type="xs:string" minOccurs="0" />
+		<xs:element name="product" type="Product" minOccurs="0" maxOccurs="999"/>
+		<xs:element name="transactionId" type="xs:string" minOccurs="0" />
+		<xs:element name="packagedBy" type="xs:string" minOccurs="0" />
+		<xs:element name="deliveringBy" type="xs:string" minOccurs="0" />
+		<xs:element name="deliveryDate" type="xs:string" minOccurs="0" />
+		<xs:element name="deliveryAddress" type="Address" minOccurs="0"/>
+		<xs:element name="orderStatus" type="xs:string" minOccurs="0"/>
+		<xs:element name="payment" type="Payment" minOccurs="0"/>
+		<xs:element name="invoice" type="Invoice" minOccurs="0"/>
+	</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Product">
+		<xs:sequence>
+			<xs:element name="productId" type="xs:string" minOccurs="0" />
+			<xs:element name="productName" type="xs:string" />
+			<xs:element name="productType" type="xs:string" minOccurs="0" />
+			<xs:element name="productBrand" type="xs:string" minOccurs="0" />
+			<xs:element name="productPrice" type="xs:decimal" minOccurs="0" />
+			<xs:element name="manufacturedBy" type="xs:string" minOccurs="0" />
+			<xs:element name="madeIn" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Payment">
+		<xs:sequence>
+			<xs:element name="paymentMode" type="xs:string" minOccurs="0" />
+			<xs:element name="paymentAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="paymentStatus" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Invoice">
+		<xs:sequence>
+			<xs:element name="invoiceId" type="xs:string" minOccurs="0" />
+			<xs:element name="invoiceAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="invoiceStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="invoiceDate" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Address">
+		<xs:annotation>
+			<xs:documentation>Order Specific address.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="postcode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="9" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="cityName" minOccurs="0">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>String Type Length 35</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="35" />
+						<xs:pattern value=".{1,35}" />
+					</xs:restriction>
+				</xs:simpleType>
+
+			</xs:element>
+			<xs:element name="country" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:length value="8" />
+						<xs:pattern value="([a-zA-Z]){2}" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="H.No" type="xs:string" minOccurs="0" />
+			<xs:element name="customerNumber" type="xs:string" minOccurs="0" />
+			<xs:element name="contactPerson" type="xs:string" minOccurs="0" />
+			<xs:element name="telephoneNumber" type="xs:string" minOccurs="0" />
+			<xs:element name="emailAddress" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
